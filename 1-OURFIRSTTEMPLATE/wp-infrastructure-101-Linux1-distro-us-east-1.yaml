@@ -1,0 +1,22 @@
+Description: 'A simple template intended to be run in N.Virginia (us-east-1) with a Linux (1) distro'
+Resources:
+  DB:
+    Type: "AWS::RDS::DBInstance"
+    Properties:
+      AllocatedStorage: 5
+      StorageType: gp2
+      DBInstanceClass: db.t2.micro
+      DBName: wordpress
+      Engine: MySQL
+      MasterUsername: wordpress
+      MasterUserPassword: sudhanva
+  EC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0b44050b2d893d5f7
+      InstanceType: t2.micro
+  S3:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: wp-sudhanva-site
+
